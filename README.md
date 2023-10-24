@@ -1,24 +1,24 @@
 <p align="center">
-<img src="https://i.imgur.com/Clzj7Xs.png" alt="osTicket logo"/>
+  <img src="https://i.imgur.com/Clzj7Xs.png" alt="osTicket logo"/>
 </p>
 
 <h1>osTicket - Prerequisites and Installation (Part 1)</h1>
-<p>In this installation tutorial, I will walk you through what you need and how to set up osTicket, an open-source help desk ticketing system. With some notes and screenshots to give you a quick peek at the important stuff.</p>
+<p>This installation guide will walk you through the necessary steps to set up osTicket, an open-source help desk ticketing system. It includes key information along with screenshots for a quick overview.</p>
 
-<h2>Environments and Technologies Used</h2>
+<h2>Environments and Technologies Utilized</h2>
 
-- Microsoft Azure (Virtual Machines: Windows 10 recommend for this guide)
+- Microsoft Azure (Virtual Machines: Windows 10 recommended for this guide)
 - MacBook Air
 - RD Client
 - Internet Information Services (IIS)
 
-<h2>Operating Systems Used </h2>
+<h2>Operating Systems Employed</h2>
 
 - Windows 10 Pro
 
-<h2>Files to use for installation</h2>
+<h2>Files Required for Installation</h2>
 
-- https://drive.google.com/drive/u/1/folders/1APMfNyfNzcxZC6EzdaNfdZsUwxWYChf6
+- [Installation Files](https://drive.google.com/drive/u/1/folders/1APMfNyfNzcxZC6EzdaNfdZsUwxWYChf6)
 
 -----
 
@@ -26,17 +26,17 @@
 
 <h2>1) Create a Resource Group</h2>
 
-- Start by logging into your Azure portal.
+- Begin by logging into your Azure portal.
 
-- Click on "Create a resource" and choose "Resource group."
+- Click on "Create a resource" and select "Resource group."
 
-- Name your resource group, and select a region. Click "Review + create" and then "Create."
+- Name your resource group and choose a region. Click "Review + create" and then "Create."
 
 <h2>2) Create a Windows 10 Virtual Machine</h2>
 
 - In the Azure portal, select your newly created resource group.
 
-- Click on "Add" and search for "Windows 10 Pro." Choose an appropriate image.
+- Click "Add" and search for "Windows 10 Pro." Choose an appropriate image.
   
 - Configure your VM with 2-4 virtual CPUs and memory as needed.
   
@@ -53,10 +53,10 @@
 - Set a username (e.g., "labuser").
   
 - Choose a strong password (e.g., "osTicketPassword1!").
-  
+
 <h3>2) Download Installation Files</h3>
 
-- Open your RD Client and within the VM, you can you copy and paste it through the search bar and download the installation files: https://drive.google.com/drive/u/1/folders/1APMfNyfNzcxZC6EzdaNfdZsUwxWYChf6
+- Open your RD Client and within the VM, copy and paste this link in the search bar to download the installation files: [Installation Files](https://drive.google.com/drive/u/1/folders/1APMfNyfNzcxZC6EzdaNfdZsUwxWYChf6)
 
 <h3>3.1) Install Within Windows VM & Enable IIS with CGI and Common HTTP Features</h3>
 
@@ -64,17 +64,17 @@
   
 - Go to "Manage" and select "Add roles and features."
 
-- Go to "World Wide Web Services" to "Application Development Features"
+- Navigate to "World Wide Web Services" and enable "Application Development Features":
     - CGI
     - Common HTTP Features
 
-<h3>3.2) ALONG with IIS Management Console</h3>
+<h3>3.2) Along with IIS Management Console</h3>
 
-- Go to "Internet Information Services" to "Web Management Tools" to "IIS Management Console"
+- Access "Internet Information Services" and include "Web Management Tools" to add "IIS Management Console."
     - IIS Management Console
 
 <p align="center">
-<img src="https://i.imgur.com/MUljPsb.png" height="50%" width="50%" />
+  <img src="https://i.imgur.com/MUljPsb.png" height="50%" width="50%" />
 </p>
 
 <h3>4) Install PHP Manager for IIS</h3>
@@ -87,21 +87,21 @@
 
 <h3>6) Create the C:\PHP Directory or Folder</h3>
 
-- Find "Windows Files Explorer" and head to "The PC" and create a folder of "PHP".
+- Open "Windows Files Explorer," navigate to "The PC," and create a folder named "PHP."
 
 <h3>7) Install PHP 7.3.8</h3>
 
-- Download [PHP 7.3.8](https://drive.google.com/file/d/1snNMtLdCOpMtkCyD4mvl9yOOmvVIp9fP/view?usp=share_link) (php-7.3.8-nts-Win32-VC15-x86.zip) from your installation files. (Note: if you see a warning icon, ignore it and keep it!)
+- Download [PHP 7.3.8](https://drive.google.com/file/d/1snNMtLdCOpMtkCyD4mvl9yOOmvVIp9fP/view?usp=share_link) (php-7.3.8-nts-Win32-VC15-x86.zip) from your installation files. (Note: if you see a warning icon, ignore it and proceed!)
 
 <p align="center">
-<img src="https://i.imgur.com/MpP1vqT.jpg" height="50%" width="50%" />
+  <img src="https://i.imgur.com/MpP1vqT.jpg" height="50%" width="50%" />
 </p>
 
 <p align="center">
-<img src="https://i.imgur.com/nClDfL8.jpg" height="30%" width="50%" />
+  <img src="https://i.imgur.com/nClDfL8.jpg" height="30%" width="50%" />
 </p>
 
-- After downloading the content, first move the content and unzip it into the "PHP folder.
+- After downloading, move and unzip the content into the "PHP" folder.
 
 <h3>8) Install VC_redist.x86.exe</h3>
 
@@ -139,11 +139,11 @@
 
 - Go to sites -> Default -> osTicket.
   
-- Click "Browse *:80." and note any missing extensions.
+- Click "Browse *:80" and note any missing extensions.
   
 <h3>15) Enable PHP Extensions</h3>
 
-- Go back to IIS, sites -> Default -> osTicket.
+- Return to IIS, sites -> Default -> osTicket.
   
 - Double-click PHP Manager.
   
@@ -196,13 +196,15 @@
 - Delete the "C:\inetpub\wwwroot\osTicket\setup" folder.
 
 <h3>2) Set Permissions</h3>
+
 Set the permissions of "C:\inetpub\wwwroot\osTicket\include\ost-config.php" to "Read" only.
 
 -----
+
 <h1>Conclusion</h1>
 
-Congratulations! You've made it through a tedious process of installing a help desk software by scratch! Now that the osTicket is installed with no errors. You can access your help desk login page at http://localhost/osTicket/scp/login.php. Along with the End Users osTicket URL: http://localhost/osTicket/ you will use for another lesson.
+Congratulations! You've successfully completed the comprehensive installation process for setting up a help desk software from scratch. With osTicket installed without errors, you can access your help desk login page at [http://localhost/osTicket/scp/login.php](http://localhost/osTicket/scp/login.php). Additionally, the End Users osTicket URL [http://localhost/osTicket/](http://localhost/osTicket/) will be used in another lesson.
 
 -----
 
-# [Next: osTicket - Post Installation Setup (Part 2)](https://github.com/anumkhanit/post-install-config)
+# [Next: osTicket - Post Installation Setup (Part 2)](https://github.com/Stanguerrero/osTicket-Post-Installation-Configuration)
